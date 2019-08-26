@@ -1,0 +1,5 @@
+{
+    "static": "public",
+    "port": 3003,
+    "pagePath": "public/page/"
+}

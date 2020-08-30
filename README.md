@@ -12,7 +12,7 @@
 
 
 
-录屏软件比较差，掉帧了
+录屏软件比较差，掉帧了。Github上似乎不支持视频插入，[移步](https://cdn.jsdelivr.net/gh/litstronger/pic@master/project/metal-surface-simulation/3.mp4)
 
 <div>
 <video width=100% controls>

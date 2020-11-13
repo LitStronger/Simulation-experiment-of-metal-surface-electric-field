@@ -3,11 +3,8 @@ var secondScene_ball = function (aeroplane = "square") {
 
     type = "side"
     video = ""
-    addSkyAndFloor(scene,true);
+    addSkyAndFloor(scene);
     setLight(scene)
-   /* var camera = new BABYLON.ArcRotateCamera("Camera", -Math.PI / 2, Math.PI * (3/8), 450, new BABYLON.Vector3(0,0,0), scene);
-        camera.setTarget(new BABYLON.Vector3(0,0,0));
-        camera.attachControl(canvas, false,false); */
            
     frontCamera = frontCam(scene)
     sideCamera = sideCam(scene)

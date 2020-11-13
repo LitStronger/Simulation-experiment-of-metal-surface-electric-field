@@ -14,7 +14,7 @@ function addCloseButton(screen) {
 
   advancedTexture.addControl(button);
 
-  button.onPointerClickObservable.add(function() {
+  button.onPointerClickObservable.add(function () {
     screen.dispose();
     advancedTexture.dispose();
     video = "";
@@ -40,67 +40,63 @@ function addBackButton(title) {
 
   advancedTexture.addControl(button);
 
-  button.onPointerClickObservable.add(function() {
+  button.onPointerClickObservable.add(function () {
     scene.dispose();
     scene = simpleScene();
   });
-/*
-  header = new BABYLON.GUI.TextBlock();
-  header.text = title;
-  header.height = "40px";
-  header.color = "white";
-  header.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-  header.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
-  header.textHorizontalAlignment =
-    BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-  header.paddingLeft = "100px";
-  header.paddingTop = "10px";
-  advancedTexture.addControl(header);
-
-  let logo = new BABYLON.GUI.Image("logo", "textures/logo.png");
-  logo.stretch = BABYLON.GUI.Image.STRETCH_NONE;
-  logo.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
-  logo.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-  logo.height = "60px";
-  logo.width = "240px";
-  advancedTexture.addControl(logo);
-
-  let lab = new BABYLON.GUI.TextBlock();
-  lab.text =
-    "电工电子国家级实验教学示范中心\n电子信息技术国家级虚拟仿真实验教学中心";
-  lab.fontFamily = "sans serf";
-  lab.color = "#223680";
-  // lab.color = "darkblue"
-  lab.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-  lab.textVerticalAlignment = transformVertical("bottom");
-  lab.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-  lab.paddingLeft = "260px";
-  lab.top = "-10px";
-  lab.lineSpacing = "2px";
-  // advancedTexture.addControl(lab)
-
-  let lab2 = new BABYLON.GUI.TextBlock();
-  lab2.text = "建议使用GTX550、Vega4及以上性能显卡运行本应用";
-  lab2.fontFamily = "sans serf";
-  lab2.color = "#aaaaaa";
-  // lab.color = "darkblue"
-  lab2.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
-  lab2.textVerticalAlignment = transformVertical("top");
-  lab2.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
-  lab2.paddingRight = "10px";
-  lab2.top = "10px";
-  lab2.lineSpacing = "2px";
-  advancedTexture.addControl(lab2);*/
+  /*
+    header = new BABYLON.GUI.TextBlock();
+    header.text = title;
+    header.height = "40px";
+    header.color = "white";
+    header.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+    header.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
+    header.textHorizontalAlignment =
+      BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+    header.paddingLeft = "100px";
+    header.paddingTop = "10px";
+    advancedTexture.addControl(header);
+  
+    let logo = new BABYLON.GUI.Image("logo", "textures/logo.png");
+    logo.stretch = BABYLON.GUI.Image.STRETCH_NONE;
+    logo.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
+    logo.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+    logo.height = "60px";
+    logo.width = "240px";
+    advancedTexture.addControl(logo);
+  
+    let lab = new BABYLON.GUI.TextBlock();
+    lab.text =
+      "电工电子国家级实验教学示范中心\n电子信息技术国家级虚拟仿真实验教学中心";
+    lab.fontFamily = "sans serf";
+    lab.color = "#223680";
+    // lab.color = "darkblue"
+    lab.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+    lab.textVerticalAlignment = transformVertical("bottom");
+    lab.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+    lab.paddingLeft = "260px";
+    lab.top = "-10px";
+    lab.lineSpacing = "2px";
+    // advancedTexture.addControl(lab)
+  
+    let lab2 = new BABYLON.GUI.TextBlock();
+    lab2.text = "建议使用GTX550、Vega4及以上性能显卡运行本应用";
+    lab2.fontFamily = "sans serf";
+    lab2.color = "#aaaaaa";
+    // lab.color = "darkblue"
+    lab2.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
+    lab2.textVerticalAlignment = transformVertical("top");
+    lab2.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
+    lab2.paddingRight = "10px";
+    lab2.top = "10px";
+    lab2.lineSpacing = "2px";
+    advancedTexture.addControl(lab2);*/
 }
 
 function Button(
   text,
-  onButtonClick = () => {
-    console.log("click");
-  },
-  onButtonHover = () => {
-    console.log("hover");
-  },
+  onButtonClick = () => { },
+  onButtonHover = () => { },
   height = "100px",
   width = 1,
   color = "white",
@@ -157,7 +153,7 @@ function TextBlock(text, fontSize = 25, height = "60px") {
   return textblock;
 }
 
-function RatioButton(size = "40px") {
+function RatioButton(size = "24px") {
   let button = new BABYLON.GUI.RadioButton();
   button.width = size;
   button.height = size;
@@ -170,8 +166,8 @@ function Ratio(
   text,
   height = "150px",
   width = "400px",
-  fontsize = 40,
-  size = "40px",
+  fontsize = 24,
+  size = "24px",
   callback = value => {
     console.log(value);
   }
@@ -189,13 +185,13 @@ function Ratio(
   header.height = height;
   header.color = "black";
   header.alpha = 0.7;
-  header.children[1].fontSize = 36;
+  header.children[1].fontSize = fontsize;
   header.children[1].onPointerMoveObservable.add(() => {
-    header.children[1].fontSize = 44;
+    header.children[1].fontSize = 30;
     header.children[1].color = "#2c6ef7";
   });
   header.children[1].onPointerOutObservable.add(() => {
-    header.children[1].fontSize = 36;
+    header.children[1].fontSize = fontsize;
     header.children[1].color = "";
   });
   header.children[1].fontSize = fontsize;
@@ -246,31 +242,44 @@ function Ratio_s(
 function upFormitem(
   columns,
   title,
-  onRatioClick = value => {
-    console.log(value);
-  },
-  onButtonClick = () => {
-    console.log("click");
-  }
+  onRatioClick = value => { },
+  onButtonClick = () => { }
 ) {
   let panel = new BABYLON.GUI.StackPanel();
-  panel.top = "100px";
+  panel.top = "60px";
+  panel.left = "0px"
+
+  // 以left/top相对于窗口来定位
+  panel.horizontalAlignment = transformHorizontal("left");
+  panel.verticalAlignment = transformVertical("top");
+
   panel.background = "white";
   panel.alpha = 0.8;
+  panel.width = "300px";
+  panel.height = "540px";
 
- //
+  // title
+  panel.addControl(
+    Button(
+      title,
+      (onButtonClick = onButtonClick), onButtonHover = () => { },
+      height = "90px",
+      width = "300px",
+      color = "white",
+      background = "orange",
+      fontSize = 26
+    )
+  );
 
-//
-  panel.addControl(Button(title, (onButtonClick = onButtonClick)));
-
+  // 选项
   columns.forEach(element => {
     panel.addControl(
       Ratio(
         element,
-        (height = "150px"),
-        (width = "450px"),
-        (fontsize = 40),
-        (size = "40px"),
+        (height = "90px"),
+        (width = "250px"),
+        (fontsize = 24),
+        (size = "20px"),
         onRatioClick
       )
     );
@@ -298,16 +307,16 @@ function downFormitem(
   panel.width = "400px";
   panel.height = "220px";
 
-  let textblock = TextBlock(subtitle,30);
+  let textblock = TextBlock(subtitle, 30);
   panel.addControl(textblock);
-  panel = addSlider(panel,value => {
+  panel = addSlider(panel, value => {
     onRatioClick(value);
   });
-  let paramsRange = TextBlock("443MHz      ~       2.4GMHz",20,"50px");
+  let paramsRange = TextBlock("443MHz      ~       2.4GMHz", 20, "50px");
 
   panel.addControl(paramsRange);
 
-  panel.addControl(Button(title, (onButtonClick = onButtonClick),null,"55px","500px","white","orange","20px",5));
+  panel.addControl(Button(title, (onButtonClick = onButtonClick), null, "55px", "500px", "white", "orange", "20px", 5));
   return panel;
 }
 
@@ -339,12 +348,12 @@ function downFormitem_s(
   panel.horizontalAlignment = transformHorizontal(horizontal);
   panel.verticalAlignment = transformVertical(vertical);
 
-  let textblock = TextBlock(subtitle,26,"40px");
+  let textblock = TextBlock(subtitle, 26, "40px");
   panel.addControl(textblock);
-  panel = addSlider(panel,value => {
+  panel = addSlider(panel, value => {
     onRatioClick(value);
   });
-  let paramsRange = TextBlock("443MHz    ~     2.4GMHz",18,"35px");
+  let paramsRange = TextBlock("443MHz    ~     2.4GMHz", 18, "35px");
   panel.addControl(paramsRange);
   //panel.addControl(Button(title, (onButtonClick = onButtonClick),null,"55px","500px","white","orange","20px",5));
   //
@@ -541,8 +550,7 @@ function addPicture(exp, aeroplane, radar, view, x = 300, y = 80, z = 20) {
   return screen;
 }
 
-function addSlider(panel, callback = value => {})
-{
+function addSlider(panel, callback = value => { }) {
   var header = new BABYLON.GUI.TextBlock();
   header.height = "30px";
   header.color = "black";
@@ -567,30 +575,30 @@ function addSlider(panel, callback = value => {})
     let radarValue = "443MHz";
     SliderValue = (Math.round(value)) | 0;
 
-    if(SliderValue >= 0 && SliderValue<20){
+    if (SliderValue >= 0 && SliderValue < 20) {
       radarValue = "接近443MHz"
     }
-    else if(SliderValue >= 20 && SliderValue<40){
+    else if (SliderValue >= 20 && SliderValue < 40) {
       radarValue = "接近600MHz"
     }
-    else if(SliderValue >= 40 && SliderValue<60){
+    else if (SliderValue >= 40 && SliderValue < 60) {
       radarValue = "接近900MHz"
     }
-    else if(SliderValue >= 60 && SliderValue<80){
+    else if (SliderValue >= 60 && SliderValue < 80) {
       radarValue = "接近1.2GHz"
     }
-    else if(SliderValue >= 80 && SliderValue<=100){
+    else if (SliderValue >= 80 && SliderValue <= 100) {
       radarValue = "接近2.4GHz"
     }
     header.text = "已选择: " + radarValue;
     callback(SliderValue)
 
-    });
+  });
   panel.addControl(slider);
 
   return panel;
 }
-function addAngleSlider(elements,subtitle,left, top, horizontal, vertical, callback = (index) =>{console.log(index)}, onButtonClick = () => {}){
+function addAngleSlider(elements, subtitle, left, top, horizontal, vertical, callback = (index) => { console.log(index) }, onButtonClick = () => { }) {
 
   let panel = new BABYLON.GUI.StackPanel();
   panel.width = "300px";
@@ -606,7 +614,7 @@ function addAngleSlider(elements,subtitle,left, top, horizontal, vertical, callb
   panel.addControl(textblock);
 
 
-var header = new BABYLON.GUI.TextBlock();
+  var header = new BABYLON.GUI.TextBlock();
   header.height = "30px";
   header.color = "black";
   header.text = "已选择: " + "0°视角";
@@ -629,33 +637,33 @@ var header = new BABYLON.GUI.TextBlock();
     let SliderValue = 0;
     let index;
     SliderValue = (Math.round(value)) | 0;
-    if(SliderValue >= 0 && SliderValue < 10){
+    if (SliderValue >= 0 && SliderValue < 10) {
       index = 0;
-    }else if(SliderValue >= 10 && SliderValue < 20){
+    } else if (SliderValue >= 10 && SliderValue < 20) {
       index = 1;
-    }else if(SliderValue >= 20 && SliderValue < 30){
+    } else if (SliderValue >= 20 && SliderValue < 30) {
       index = 2;
-    }else if(SliderValue >= 30 && SliderValue < 40){
+    } else if (SliderValue >= 30 && SliderValue < 40) {
       index = 3;
-    }else if(SliderValue >= 40 && SliderValue < 50){
+    } else if (SliderValue >= 40 && SliderValue < 50) {
       index = 4;
-    }else if(SliderValue >= 50 && SliderValue < 60){
+    } else if (SliderValue >= 50 && SliderValue < 60) {
       index = 5;
-    }else if(SliderValue >= 60 && SliderValue < 70){
+    } else if (SliderValue >= 60 && SliderValue < 70) {
       index = 6;
-    }else if(SliderValue >= 70 && SliderValue <= 80){
+    } else if (SliderValue >= 70 && SliderValue <= 80) {
       index = 7;
     }
     header.text = "已选择: " + elements[index];
     callback(index);
-    });
+  });
 
   panel.addControl(slider);
-  let paramsRange = TextBlock("0角度    ~     315角度",20,"45px");
+  let paramsRange = TextBlock("0角度    ~     315角度", 20, "45px");
   panel.addControl(paramsRange);
   return panel;
 }
-function addAngleSlider_2(elements,subtitle,left, top, horizontal, vertical, callback = (index) =>{console.log(index)}, onButtonClick = () => {}){
+function addAngleSlider_2(elements, subtitle, left, top, horizontal, vertical, callback = (index) => { console.log(index) }, onButtonClick = () => { }) {
 
   let panel = new BABYLON.GUI.StackPanel();
   panel.width = "300px";
@@ -671,7 +679,7 @@ function addAngleSlider_2(elements,subtitle,left, top, horizontal, vertical, cal
   panel.addControl(textblock);
 
 
-var header = new BABYLON.GUI.TextBlock();
+  var header = new BABYLON.GUI.TextBlock();
   header.height = "30px";
   header.color = "black";
   header.text = "已选择: " + "0°视角";
@@ -694,23 +702,23 @@ var header = new BABYLON.GUI.TextBlock();
     let SliderValue = 0;
     let index;
     SliderValue = (Math.round(value)) | 0;
-    if(SliderValue >= 0 && SliderValue < 10){
+    if (SliderValue >= 0 && SliderValue < 10) {
       index = 0;
-    }else if(SliderValue >= 10 && SliderValue < 20){
+    } else if (SliderValue >= 10 && SliderValue < 20) {
       index = 1;
-    }else if(SliderValue >= 20 && SliderValue < 30){
+    } else if (SliderValue >= 20 && SliderValue < 30) {
       index = 2;
-    }else if(SliderValue >= 30 && SliderValue < 40){
+    } else if (SliderValue >= 30 && SliderValue < 40) {
       index = 3;
-    }else if(SliderValue >= 40 && SliderValue <= 50){
+    } else if (SliderValue >= 40 && SliderValue <= 50) {
       index = 4;
     }
     header.text = "已选择: " + elements[index];
     callback(index);
-    });
+  });
 
   panel.addControl(slider);
-  let paramsRange = TextBlock("0角度    ~     180角度",20,"45px");
+  let paramsRange = TextBlock("0角度    ~     180角度", 20, "45px");
   panel.addControl(paramsRange);
   return panel;
 

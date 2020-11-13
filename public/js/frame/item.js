@@ -26,8 +26,8 @@ function radarCam(scene) {
 }
 
 function setCamera(scene) {
-    var camera = new BABYLON.ArcRotateCamera("Camera", -Math.PI / 2, Math.PI / 2, 320,new BABYLON.Vector3(0,20,0) ,scene);
-    camera.setTarget(new BABYLON.Vector3(0,20,0));
+    var camera = new BABYLON.ArcRotateCamera("Camera", -Math.PI / 2, Math.PI / 2, 320, new BABYLON.Vector3(0, 20, 0), scene);
+    camera.setTarget(new BABYLON.Vector3(0, 20, 0));
     camera.attachControl(canvas, false, false);
     return camera
 }
@@ -56,11 +56,11 @@ function vr(scene, ground) {
     vrHelper.enableInteractions();
     return vrHelper
 }
-function rotateCam(scene){
-    var camera = new BABYLON.ArcRotateCamera("rotateCam", -Math.PI/2, Math.PI/2, 50, BABYLON.Vector3.Zero(), scene);
+function rotateCam(scene) {
+    var camera = new BABYLON.ArcRotateCamera("rotateCam", -Math.PI / 2, Math.PI / 2, 50, BABYLON.Vector3.Zero(), scene);
     camera.setTarget(BABYLON.Vector3.Zero());
-    console.log("ratateCam")    
-    camera.attachControl(canvas, false,false); 
+    console.log("ratateCam")
+    camera.attachControl(canvas, false, false);
     return camera;
 }
 // wave
@@ -169,57 +169,93 @@ function createRadarSphere(scene, frequence, position, rotation) {
         });
     }, delay)
 }
-function addSkyAndFloor(scene,IsSphere){
-                    // Skybox
-                    var skybox = BABYLON.Mesh.CreateBox("skyBox", 5000.0, scene);
-                    var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
-                   skyboxMaterial.backFaceCulling = false;
-                   skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("textures/TropicalSunnyDay", scene);
-                   skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-                   skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
-                   skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
-                   skyboxMaterial.disableLighting = true;
-                   skybox.material = skyboxMaterial;
-    
-                    // Water material
-                    var waterMaterial = new BABYLON.WaterMaterial("waterMaterial", scene, new BABYLON.Vector2(512, 512));
-                    waterMaterial.bumpTexture = new BABYLON.Texture("textures/waterbump.png", scene);
-                    waterMaterial.windForce = -10;
-                    waterMaterial.waveHeight = 0.5;
-                    waterMaterial.bumpHeight = 0.1;
-                    waterMaterial.waveLength = 0.1;
-                    waterMaterial.waveSpeed = 50.0;
-                    waterMaterial.colorBlendFactor = 0;
-                    waterMaterial.windDirection = new BABYLON.Vector2(1, 1);
-                    waterMaterial.colorBlendFactor = 0;
+// function addSkyAndFloor(scene, IsSphere) {
+//     // Skybox
+//     var skybox = BABYLON.Mesh.CreateBox("skyBox", 5000.0, scene);
+//     var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
+//     skyboxMaterial.backFaceCulling = false;
+//     skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("textures/TropicalSunnyDay", scene);
+//     skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+//     skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
+//     skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+//     skyboxMaterial.disableLighting = true;
+//     skybox.material = skyboxMaterial;
 
-                    // Water mesh
-                    var waterMesh = BABYLON.Mesh.CreateGround("waterMesh", 2000, 2000, 32, scene, false);
-                    waterMesh.material = waterMaterial;
-                    waterMaterial.addToRenderList(skybox);
+//     // Water material
+//     var waterMaterial = new BABYLON.WaterMaterial("waterMaterial", scene, new BABYLON.Vector2(512, 512));
+//     waterMaterial.bumpTexture = new BABYLON.Texture("textures/waterbump.png", scene);
+//     waterMaterial.windForce = -10;
+//     waterMaterial.waveHeight = 0.5;
+//     waterMaterial.bumpHeight = 0.1;
+//     waterMaterial.waveLength = 0.1;
+//     waterMaterial.waveSpeed = 50.0;
+//     waterMaterial.colorBlendFactor = 0;
+//     waterMaterial.windDirection = new BABYLON.Vector2(1, 1);
+//     waterMaterial.colorBlendFactor = 0;
 
-             /*        if(IsSphere == true){
-                    // Ground
-                   var groundTexture = new BABYLON.Texture("http://localhost:3003/textures/sand.jpg", scene);
-                    groundTexture.vScale = groundTexture.uScale = 4.0;
-    
-                    var groundMaterial = new BABYLON.StandardMaterial("groundMaterial", scene);
-                    groundMaterial.diffuseTexture = groundTexture;
-    
-                    var ground = BABYLON.Mesh.CreateGround("ground", 2000, 2000, 32, scene, false);
-                    ground.position.y = -1;
-                    ground.material = groundMaterial;
-                                              
-                    // Sphere
-                    var sphereMaterial = new BABYLON.StandardMaterial("sphereMaterial", scene);
-                    sphereMaterial.diffuseTexture = new BABYLON.Texture("http://localhost:3003/textures/wood.jpg", scene);
-        
-                    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter:60}, scene);
-                    sphere.position = new BABYLON.Vector3(0,15,100);
-                    sphere.material = sphereMaterial;
-        
-                    
-                    waterMaterial.addToRenderList(sphere);
-                   // waterMaterial.addToRenderList(ground);
-                    }*/
+//     // Water mesh
+//     var waterMesh = BABYLON.Mesh.CreateGround("waterMesh", 2000, 2000, 32, scene, false);
+//     waterMesh.material = waterMaterial;
+//     waterMaterial.addToRenderList(skybox);
+// }
+function addSkyAndFloor(scene) {
+
+    // Skybox
+    var skybox = BABYLON.Mesh.CreateBox("skyBox", 5000.0, scene);
+    var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
+    skyboxMaterial.backFaceCulling = false;
+    skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("textures/TropicalSunnyDay/TropicalSunnyDay", scene);
+    skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+    skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
+    skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+    skyboxMaterial.disableLighting = true;
+    skybox.material = skyboxMaterial;
+
+
+    //Creation of a repeated textured material
+    var materialPlane = new BABYLON.StandardMaterial("texturePlane", scene);
+    materialPlane.diffuseTexture = new BABYLON.Texture("textures/textures/grass.jpg", scene);
+
+    materialPlane.diffuseTexture.uScale = 200.0;//Repeat 5 times on the Vertical Axes
+    materialPlane.diffuseTexture.vScale = 200.0;//Repeat 5 times on the Horizontal Axes
+    materialPlane.backFaceCulling = false;//Always show the front and the back of an element
+
+    var glassMesh = BABYLON.Mesh.CreateGround("waterMesh", 2000, 2000, 32, scene, false);
+    glassMesh.material = materialPlane;
+
+
+    var particleSystem;
+    var createNewSystem = function (v3) {
+        var fountain = BABYLON.Mesh.CreateBox("foutain", .01, scene); //雾气挂载点
+        fountain.position = new BABYLON.Vector3(-1000, 0, -1000) //定位到角落
+        // fountain.visibility = 0;
+
+        var fogTexture = new BABYLON.Texture("https://minio.cnbabylon.com/public/Assets/smoke_15.png", scene);
+
+        particleSystem = new BABYLON.ParticleSystem("particles", 5000, scene);
+        particleSystem.manualEmitCount = particleSystem.getCapacity();
+        particleSystem.minEmitBox = new BABYLON.Vector3(2000, 30, 2000); // Starting all from
+        // particleSystem.maxEmitBox = new BABYLON.Vector3(25, 2, 25); // To...
+        particleSystem.particleTexture = fogTexture.clone();
+        particleSystem.emitter = fountain;
+
+        particleSystem.color1 = new BABYLON.Color4(0.8, 0.8, 0.8, 0.1);
+        particleSystem.color2 = new BABYLON.Color4(.95, .95, .95, 0.15);
+        particleSystem.colorDead = new BABYLON.Color4(0.9, 0.9, 0.9, 0.1);
+        particleSystem.minSize = 20;
+        particleSystem.maxSize = 60.0;
+        particleSystem.minLifeTime = Number.MAX_SAFE_INTEGER;
+        particleSystem.emitRate = 50000;
+        particleSystem.blendMode = BABYLON.ParticleSystem.BLENDMODE_STANDARD;
+        particleSystem.gravity = new BABYLON.Vector3(0, 0, 0);
+        particleSystem.direction1 = new BABYLON.Vector3(0, 0, 0);
+        particleSystem.direction2 = new BABYLON.Vector3(0, 0, 0);
+        particleSystem.minAngularSpeed = -2;
+        particleSystem.maxAngularSpeed = 2;
+        particleSystem.minEmitPower = .5;
+        particleSystem.maxEmitPower = 1;
+        particleSystem.updateSpeed = 0.005;
+        particleSystem.start();
+    }
+    createNewSystem();
 }

@@ -3,7 +3,7 @@ var forthScene_ball = function (aeroplane = "square") {
 
     type = "side"
     video = ""
-    addSkyAndFloor(scene,true);
+    addSkyAndFloor(scene);
     setLight(scene)
            
     frontCamera = frontCam(scene)

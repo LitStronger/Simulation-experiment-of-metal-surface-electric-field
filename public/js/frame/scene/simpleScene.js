@@ -5,7 +5,6 @@ var simpleScene = function () {
     let ground = frameGround(scene)
     vr(scene, ground)
 
-
     addSkyAndFloor(scene);
 
     addBackButton("")
@@ -29,19 +28,16 @@ var simpleScene = function () {
 
 function createPanel(){
     let columns=[
-        "微波雷达信号辐射规律",
-        "表面电场分布（频率）",
-        "表面电场分布（时间）",
-        "RCS雷达散射截面测量"
+        "1.正方体",
+        "2.圆柱体",
+        "3.球体",
+        "4.无人机（单雷达）",
+        "5.无人机（双雷达）"
     ]
-    let plane=BABYLON.Mesh.CreatePlane("plane",20)
-    plane.position.y=20
-    plane.position.z=-290
-    plane.billboardMode=2
+    var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI"); 
 
-    let advancedTexture=BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(plane)
 
-    let Form=upFormitem(columns,"金属体电磁散射特性分析仿真软件",onRadtioClick=(value)=>{
+    let Form=upFormitem(columns,"RCS雷达散射截面测量",onRadtioClick=(value)=>{
         let frames=[
             firstScene,
             secondScene_ball,

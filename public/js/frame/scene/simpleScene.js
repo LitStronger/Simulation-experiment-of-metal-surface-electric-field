@@ -14,8 +14,9 @@ var simpleScene = function () {
         console.log("error while loading " + task.name);
     }
 
-    addF117(assetsManager, new BABYLON.Vector3(0.8, 0.8, 0.8), 30, 0)
-
+    // addF117(assetsManager, new BABYLON.Vector3(0.8, 0.8, 0.8), 30, 0)
+    addAircraft(assetsManager, new BABYLON.Vector3(0.1, 0.1, 0.1), 100, 100)
+    
     engine.loadingUIBackgroundColor = "Black";
     assetsManager.load();
 
@@ -26,32 +27,38 @@ var simpleScene = function () {
     return scene;
 }
 
-function createPanel(){
-    let columns=[
-        "1.正方体",
-        "2.圆柱体",
-        "3.球体",
-        "4.无人机（单雷达）",
-        "5.无人机（双雷达）"
+function createPanel() {
+    let columns = [
+        "1. 正方体",
+        "2. 圆柱体",
+        "3. 球体",
+        "4. 无人机(单雷达)",
+        "5. 无人机(双雷达)"
     ]
-    var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI"); 
+    var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
 
 
-    let Form=upFormitem(columns,"RCS雷达散射截面测量",onRadtioClick=(value)=>{
-        let frames=[
-            firstScene,
-            secondScene_ball,
-            thirdScene,
-            forthScene_ball
-        ]
-        let index=indexItem(columns,value)
-        console.log("index:"+ index)
-        if(index>=0){
-            scene.dispose()
-            console.log(frames[index]);
-            scene=frames[index]()
-        }else{
-            console.log(index)
+    let Form = upFormitem(columns, "产品外形隐身性能分析", onRadtioClick = (value) => {
+
+        let index = indexItem(columns, value)
+        console.log("index:" + index)
+        if (index >= 0) {
+            if (index == 0) {
+                scene.dispose()
+                scene = sceneBaseObj('cube')
+            }else if(index == 1){
+                scene.dispose()
+                scene = sceneBaseObj('column')
+            }else if(index == 2){
+                scene.dispose()
+                scene = sceneBaseObj('ball')
+            }else if(index == 3){
+                scene.dispose()
+                scene = sceneAircraft('')
+            }else if(index == 4){
+                scene.dispose()
+                scene = sceneAircraft('ball')
+            }
         }
 
     })

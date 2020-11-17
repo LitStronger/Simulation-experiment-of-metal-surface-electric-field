@@ -6,52 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>无人机外形隐身设计虚拟仿真实验</title>
-    <!-- <script src="https://aerosimi-1253417793.cos.ap-shanghai.myqcloud.com/js/babylon/babylonjs.min.js"></script> -->
-    <!-- <script src="./js/babylon/babylonjs.min.js"></script> -->
-    <!-- <script src="https://aerosimi-1253417793.cos.ap-shanghai.myqcloud.com/js/babylon/babylonjs.gui.min.js"></script> -->
-    <!-- <script src="./js/babylon/babylonjs.gui.min.js"></script> -->
-    <!-- <script src="https://aerosimi-1253417793.cos.ap-shanghai.myqcloud.com/js/babylon/babylonjs.loaders.min.js"></script> -->
 
     
     <script src="./js/frame/ui.js"></script>
     <script src="./js/frame/item.js"></script>
     <script src="./js/frame/api.js"></script>
     <script src="./js/frame/scene/simpleScene.js"></script>
-    <script src="./js/frame/scene/firstScene.js"></script>
+    <script src="./js/frame/scene/sceneCube.js"></script>
+    <script src="./js/frame/scene/sceneAircraft.js"></script>
+
+
+    <!-- <script src="./js/frame/scene/firstScene.js"></script>
     <script src="./js/frame/scene/secondScene.js"></script>
     <script src="./js/frame/scene/secondScene_ball.js"></script>
-
     <script src="./js/frame/scene/thirdScene.js"></script>
     <script src="./js/frame/scene/forthScene_b.js"></script>
     <script src="./js/frame/scene/forthScene_d.js"></script>
-    <script src="./js/frame/scene/forthScene_ball.js"></script>
+    <script src="./js/frame/scene/forthScene_ball.js"></script> -->
 
 
-    <!-- <script src="https://preview.babylonjs.com/babylon.js"></script> -->
-    <!-- <script src="https://cdn.babylonjs.com/babylon.js"></script> -->
     <script src="./js/babylon/babylon.js"></script>
 
-
-    <!-- <script src="https://preview.babylonjs.com/inspector/babylon.inspector.bundle.js"></script> -->
-    <!-- <script src="https://cdn.babylonjs.com/inspector/babylon.inspector.bundle.js"></script> -->
     <script src="./js/babylon/babylon.inspector.bundle.js"></script>
 
-
-    <!-- <script src="https://preview.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script> -->
-    <!-- <script src="https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script> -->
     <script src="./js/babylon/babylonjs.materials.min.js"></script>
 
-
-    <!-- <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.js"></script> -->
-    <!-- <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script> -->
     <script src="./js/babylon/babylonjs.loaders.min.js"></script>
 
-
-    <!-- <script src="https://preview.babylonjs.com/serializers/babylonjs.serializers.min.js"></script> -->
-    
-    <!-- <script src="https://preview.babylonjs.com/gui/babylon.gui.min.js"></script> -->
     <script src="https://aerosimi-1253417793.cos.ap-shanghai.myqcloud.com/js/babylon/babylonjs.gui.min.js"></script>
-    <!-- <script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script> -->
 
     <style>
         html,
@@ -87,7 +69,6 @@
     engine.loadingUIText = "加载中,首次加载需加载三维模型，请耐心等待"
 
     var scene = simpleScene()
-    // var scene = simpleScene()
 
     BABYLON.SceneLoader.ShowLoadingScreen = true
 

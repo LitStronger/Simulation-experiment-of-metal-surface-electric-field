@@ -1,4 +1,4 @@
-var simpleScene = function () {
+var simpleScene =  function () {
     let scene = new BABYLON.Scene(engine);
     setLight(scene)
     let camera = setCamera(scene)
@@ -19,6 +19,8 @@ var simpleScene = function () {
     
     engine.loadingUIBackgroundColor = "Black";
     assetsManager.load();
+    // assetsManager.loadAsync()
+
 
     scene.onPointerDown = function () {
         scene.onPointerDown = undefined
@@ -42,6 +44,7 @@ function createPanel() {
 
         let index = indexItem(columns, value)
         console.log("index:" + index)
+        console.log()
         if (index >= 0) {
             if (index == 0) {
                 scene.dispose()
@@ -51,18 +54,17 @@ function createPanel() {
                 scene = sceneBaseObj('column')
             }else if(index == 2){
                 scene.dispose()
-                scene = sceneBaseObj('ball')
+                scene = sceneBaseObj('sphere')
             }else if(index == 3){
                 scene.dispose()
-                scene = sceneAircraft('')
+                scene = sceneAircraft('aircraft', "single")
             }else if(index == 4){
                 scene.dispose()
-                scene = sceneAircraft('ball')
+                scene = sceneAircraft('aircraft', "double")
             }
         }
 
     })
-    console.log(Form)
-
+    
     advancedTexture.addControl(Form)
 }

@@ -169,35 +169,7 @@ function createRadarSphere(scene, frequence, position, rotation) {
         });
     }, delay)
 }
-// function addSkyAndFloor(scene, IsSphere) {
-//     // Skybox
-//     var skybox = BABYLON.Mesh.CreateBox("skyBox", 5000.0, scene);
-//     var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
-//     skyboxMaterial.backFaceCulling = false;
-//     skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("textures/TropicalSunnyDay", scene);
-//     skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-//     skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
-//     skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
-//     skyboxMaterial.disableLighting = true;
-//     skybox.material = skyboxMaterial;
 
-//     // Water material
-//     var waterMaterial = new BABYLON.WaterMaterial("waterMaterial", scene, new BABYLON.Vector2(512, 512));
-//     waterMaterial.bumpTexture = new BABYLON.Texture("textures/waterbump.png", scene);
-//     waterMaterial.windForce = -10;
-//     waterMaterial.waveHeight = 0.5;
-//     waterMaterial.bumpHeight = 0.1;
-//     waterMaterial.waveLength = 0.1;
-//     waterMaterial.waveSpeed = 50.0;
-//     waterMaterial.colorBlendFactor = 0;
-//     waterMaterial.windDirection = new BABYLON.Vector2(1, 1);
-//     waterMaterial.colorBlendFactor = 0;
-
-//     // Water mesh
-//     var waterMesh = BABYLON.Mesh.CreateGround("waterMesh", 2000, 2000, 32, scene, false);
-//     waterMesh.material = waterMaterial;
-//     waterMaterial.addToRenderList(skybox);
-// }
 function addSkyAndFloor(scene) {
 
     // Skybox

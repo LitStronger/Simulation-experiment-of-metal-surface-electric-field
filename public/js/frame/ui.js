@@ -30,10 +30,10 @@ function addBackButton(title) {
     "but",
     "textures/backspace.png"
   );
-  button.alpha = 0.5;
+  button.alpha = 0.8;
   button.width = "74px";
   button.height = "50px";
-  button.color = "#333";
+  button.color = "#1D2020";
   button.background = "white";
   button.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
   button.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
@@ -44,53 +44,6 @@ function addBackButton(title) {
     scene.dispose();
     scene = simpleScene();
   });
-  /*
-    header = new BABYLON.GUI.TextBlock();
-    header.text = title;
-    header.height = "40px";
-    header.color = "white";
-    header.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-    header.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
-    header.textHorizontalAlignment =
-      BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-    header.paddingLeft = "100px";
-    header.paddingTop = "10px";
-    advancedTexture.addControl(header);
-  
-    let logo = new BABYLON.GUI.Image("logo", "textures/logo.png");
-    logo.stretch = BABYLON.GUI.Image.STRETCH_NONE;
-    logo.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
-    logo.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-    logo.height = "60px";
-    logo.width = "240px";
-    advancedTexture.addControl(logo);
-  
-    let lab = new BABYLON.GUI.TextBlock();
-    lab.text =
-      "电工电子国家级实验教学示范中心\n电子信息技术国家级虚拟仿真实验教学中心";
-    lab.fontFamily = "sans serf";
-    lab.color = "#223680";
-    // lab.color = "darkblue"
-    lab.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-    lab.textVerticalAlignment = transformVertical("bottom");
-    lab.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-    lab.paddingLeft = "260px";
-    lab.top = "-10px";
-    lab.lineSpacing = "2px";
-    // advancedTexture.addControl(lab)
-  
-    let lab2 = new BABYLON.GUI.TextBlock();
-    lab2.text = "建议使用GTX550、Vega4及以上性能显卡运行本应用";
-    lab2.fontFamily = "sans serf";
-    lab2.color = "#aaaaaa";
-    // lab.color = "darkblue"
-    lab2.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
-    lab2.textVerticalAlignment = transformVertical("top");
-    lab2.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
-    lab2.paddingRight = "10px";
-    lab2.top = "10px";
-    lab2.lineSpacing = "2px";
-    advancedTexture.addControl(lab2);*/
 }
 
 function Button(
@@ -100,7 +53,7 @@ function Button(
   height = "100px",
   width = 1,
   color = "white",
-  background = "orange",
+  background = "#222",
   fontSize = 50
 ) {
   let button = BABYLON.GUI.Button.CreateSimpleButton(text, text);
@@ -128,7 +81,7 @@ function Button_s(
   height = "100px",
   width = 1,
   color = "white",
-  background = "orange",
+  background = "#222",
   fontSize = 50
 ) {
   let button = BABYLON.GUI.Button.CreateSimpleButton(text, text);
@@ -158,7 +111,7 @@ function RatioButton(size = "24px") {
   button.width = size;
   button.height = size;
   button.color = "white";
-  button.background = "orange";
+  button.background = "#1D2020";  // li标签小圆点颜色
   return button;
 }
 
@@ -247,7 +200,7 @@ function upFormitem(
 ) {
   let panel = new BABYLON.GUI.StackPanel();
   panel.top = "60px";
-  panel.left = "0px"
+  panel.left = "10px"
 
   // 以left/top相对于窗口来定位
   panel.horizontalAlignment = transformHorizontal("left");
@@ -266,7 +219,7 @@ function upFormitem(
       height = "90px",
       width = "300px",
       color = "white",
-      background = "orange",
+      background = "#222", // 灰
       fontSize = 26
     )
   );
@@ -316,7 +269,7 @@ function downFormitem(
 
   panel.addControl(paramsRange);
 
-  panel.addControl(Button(title, (onButtonClick = onButtonClick), null, "55px", "500px", "white", "orange", "20px", 5));
+  panel.addControl(Button(title, (onButtonClick = onButtonClick), null, "55px", "500px", "white", "#222", "20px", 5));
   return panel;
 }
 
@@ -566,7 +519,7 @@ function addSlider(panel, callback = value => { }) {
   slider.height = "30px";
   slider.width = "250px";
   slider.paddingTop = "5px";
-  slider.color = "orange";
+  slider.color = "#222";
   slider.background = "white"
   //slider.left = "120px";
 
@@ -629,7 +582,7 @@ function addAngleSlider(elements, subtitle, left, top, horizontal, vertical, cal
   slider.height = "30px";
   slider.width = "250px";
   slider.paddingTop = "5px";
-  slider.color = "orange";
+  slider.color = "#222";
   slider.background = "white"
   //slider.left = "120px";
 
@@ -694,7 +647,7 @@ function addAngleSlider_2(elements, subtitle, left, top, horizontal, vertical, c
   slider.height = "30px";
   slider.width = "250px";
   slider.paddingTop = "5px";
-  slider.color = "orange";
+  slider.color = "#222";
   slider.background = "white"
   //slider.left = "120px";
 

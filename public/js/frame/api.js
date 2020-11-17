@@ -1,5 +1,5 @@
 //add mesh
-source="http://localhost:3003"
+source = "http://localhost:3003"
 // source=""
 /*
 function addSphere(){
@@ -39,7 +39,7 @@ function addA380(assetsManager) {
         a380.position.x = 0
         a380.position.z = 300
         a380.rotation = new BABYLON.Vector3(0, Math.PI, 0)
-        a380.state = "a380" 
+        a380.state = "a380"
     }
 }
 
@@ -60,12 +60,68 @@ function addF117(assetsManager, scaling = new BABYLON.Vector3(0.2, 0.2, 0.2), y 
     }
 }
 
+function addSphere(scene) {
+    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 60 }, scene);
+    sphere.position = new BABYLON.Vector3(50, 100, 80);
+    sphere.rotation.x = Math.PI * 0.7
+    sphere.state = "sphere";
+
+    var sphereMaterial = new BABYLON.StandardMaterial("sphereMaterial", scene);
+    sphereMaterial.diffuseColor = new BABYLON.Color3(0.97, 0.69, 0.17)
+    sphere.material = sphereMaterial;
+
+    return sphere;
+}
+
+function addCube(scene) {
+    var cube = BABYLON.Mesh.CreateBox("cube", 50, scene);
+    cube.position = new BABYLON.Vector3(50, 100, 80);
+    cube.rotation.x = Math.PI * 0.7;
+    cube.state = "cube";
+
+    var materialBox = new BABYLON.StandardMaterial("texture1", scene);
+    materialBox.diffuseColor = new BABYLON.Color3(0.97, 0.69, 0.17)
+    cube.material = materialBox
+
+    return cube;
+}
+
+function addColumn(scene) {
+    var column = BABYLON.Mesh.CreateCylinder("column", 50, 50, 50, 100, 1, scene, false, BABYLON.Mesh.DEFAULTSIDE);
+    column.position = new BABYLON.Vector3(0, 100, 80);
+    column.rotation.x = Math.PI * 0.7;
+    column.state = "column";
+
+    var materialBox = new BABYLON.StandardMaterial("texture1", scene)
+    materialBox.diffuseColor = new BABYLON.Color3(0.97, 0.69, 0.17)
+    column.material = materialBox
+
+    return column;
+}
+
+function addAircraft(assetsManager, scaling = new BABYLON.Vector3(0.2, 0.2, 0.2), y = 100, z = 300) {
+    var meshTask = assetsManager.addMeshTask("aircraft", "", `${source}/mesh/aircraft/`, "1.stl");
+    meshTask.onSuccess = function (task) {
+        let aircraft = BABYLON.Mesh.MergeMeshes(task.loadedMeshes, true, true)
+        aircraft.position.y += y
+        aircraft.position.x = 0
+        aircraft.position.z = z
+        let mat = new BABYLON.StandardMaterial()
+        mat.diffuseColor = new BABYLON.Color3(0.28, 0.3, 0.3); //
+        // mat.diffuseColor = new BABYLON.Color3(0.97, 0.69, 0.17) //暗橙色
+        aircraft.scaling = scaling
+        aircraft.material = mat
+        aircraft.state = "aircraft"
+        aircraft.rotation = new BABYLON.Vector3(-Math.PI * 0.5, 0, 0)
+    }
+}
+
 //api
-function getVideoUrl(exp,plane,radar,view) {
+function getVideoUrl(exp, plane, radar, view) {
     return `./result/${exp}/${plane}/${radar}/${view}.mp4`
 }
 
-function getPictureUrl(exp,plane,radar,view) {
+function getPictureUrl(exp, plane, radar, view) {
     return `./result/${exp}/${plane}/${radar}/${view}.jpg`
 }
 
@@ -104,28 +160,4 @@ function transformHorizontal(commond) {
         return BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER
     else
         return BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT
-}
-function addSphere(scene){
-    var sphereMaterial = new BABYLON.StandardMaterial("sphereMaterial", scene);
-    //sphereMaterial.diffuseTexture = new BABYLON.Texture(`${source}/textures/silver.jpg`, scene);
-    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter:60}, scene);
-    sphere.position = new BABYLON.Vector3(50,100,80);
-    sphere.rotation.x = Math.PI * 0.7
-    sphere.material = sphereMaterial;
-    sphere.state = "sphere";
-    return sphere;
-}
-function addSquare(scene){
-    var square = BABYLON.Mesh.CreateBox("square", 50, scene);
-    square.position = new BABYLON.Vector3(50,100,80);
-    square.rotation.x = Math.PI * 0.7;
-    square.state = "square";
-    return square;
-}
-function addColumn(scene){
-    var column = BABYLON.Mesh.CreateCylinder("column", 50, 50, 50, 100, 1, scene, false, BABYLON.Mesh.DEFAULTSIDE);
-    column.position = new BABYLON.Vector3(0,100,80);
-    column.rotation.x = Math.PI * 0.7;
-    column.state = "column";
-    return column;
 }

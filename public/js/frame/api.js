@@ -1,6 +1,7 @@
 //add mesh
-source = "http://localhost:3003"
-// source=""
+// source = 
+const config = require("./config.json")
+var source = config.source
 /*
 function addSphere(){
     var sphereMaterial = new BABYLON.StandardMaterial("sphereMaterial", scene);
